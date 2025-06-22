@@ -3,23 +3,43 @@ import styled from 'styled-components'
 
 
 function Textform({heading}) {
-    const[text,setText]=useState("enter a text")
+    const[text,setText]=useState("Enter a texts")
 
     const handleUpClick= ()=>{
         setText(text.toUpperCase());
     }
 
+    const handleLowClick=()=>{
+        setText(text.toLowerCase());
+    }
 
-
+    const handleClearClick=()=>{
+        setText("");
+    }
+    const handleReserveClick=()=>{
+        setText(text.split("").reverse().join(""))
+    }
 
 return (
 <FormContainer>
-    <h1>{heading}</h1>
-    <div className='form'>
-        <div className="txt">
-        <textarea id="mybox" value={text} onChange={(e)=>(setText(e.target.value))} rows={8} placeholder='Enter the text...'></textarea>           
-        <button onClick={handleUpClick}>Convert to uppercase</button>
+    <div className="cont">
+        <h1>{heading}</h1>
+        <div className='form'>
+            <div className="txt">
+            <textarea id="mybox" value={text} onChange={(e)=>(setText(e.target.value))} rows={8} placeholder='PLease enter the text...'></textarea>           
+            <button onClick={handleUpClick}>Convert to Uppercase</button>
+            <button onClick={handleLowClick}>Convert to Lowercase</button>
+            <button onClick={handleClearClick}>Clear Text</button>
+            <button onClick={handleReserveClick}>Reserve Text</button>
         </div>
+        </div>
+    </div>
+    <div className="cont">
+        <h2>Your text summary</h2>
+        <p>{text.split(" ").length} words and {text.length} character</p>
+        <p>{0.008*text.split(" ").length} Mintues to read</p>
+        <h2>Preview:</h2>
+        <p>{text}</p>
     </div>
 </FormContainer>
 )

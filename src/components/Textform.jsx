@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import {Button} from '../styled/Button'
 
 function Textform({heading}) {
     const[text,setText]=useState("Enter a texts")
@@ -27,10 +27,10 @@ return (
         <div className='form'>
             <div className="txt">
             <textarea id="mybox" value={text} onChange={(e)=>(setText(e.target.value))} rows={8} placeholder='PLease enter the text...'></textarea>           
-            <button onClick={handleUpClick}>Convert to Uppercase</button>
-            <button onClick={handleLowClick}>Convert to Lowercase</button>
-            <button onClick={handleClearClick}>Clear Text</button>
-            <button onClick={handleReserveClick}>Reserve Text</button>
+            <Button onClick={handleUpClick}>Convert to Uppercase</Button>
+            <Button onClick={handleLowClick}>Convert to Lowercase</Button>
+            <Button onClick={handleClearClick}>Clear Text</Button>
+            <Button onClick={handleReserveClick}>Reserve Text</Button>
         </div>
         </div>
     </div>
@@ -73,7 +73,7 @@ const FormContainer = styled.div`
             gap: 15px;
             width: 100%;
                         
-            button {
+            /* button {
                 padding: 12px 24px;
                 border-radius: 6px;
                 background-color: #0044ff;
@@ -85,7 +85,7 @@ const FormContainer = styled.div`
                 &:hover {
                     background-color: #0033cc;
                 }
-            }
+            } */
         }
     }
 `

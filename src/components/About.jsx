@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Button } from '../styled/Button'
 
+
 function About() {
     
     const [showTopic, setShowTopic] = useState(false)
@@ -9,6 +10,7 @@ function About() {
     })
     const [btnText,setBtnText]=useState("Enable Dark mode")
 
+    //Dark mode setup
     const toggleDark=()=>{
         if(myStyle.color =="black"){
             setMyStyle({backgroundColor:'black',color:"white",border:"1px solid white"})
@@ -37,7 +39,7 @@ function About() {
             )}
         </div>
         <div className='.btn'>
-        <Button onClick={toggleDark}>{btnText}</Button>
+        <Button onClick={toggleDark}>{btnText}</Button> {/* //for Dark mode  */}
         </div>
       </div>
     </AboutContainer>

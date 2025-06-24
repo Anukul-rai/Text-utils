@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {Button} from '../styled/Button'
 
-function Textform({heading}) {
+function Textform({heading,mode}) {
     const[text,setText]=useState("Enter a texts")
 
     const handleUpClick= ()=>{
@@ -24,20 +24,26 @@ function Textform({heading}) {
         
     }
 return (
-<FormContainer>
-    <div className="cont">
+<FormContainer mode={mode}> 
+    <div className="cont ">
         <h1>{heading}</h1>
         <div className='form'>
             <div className="txt">
-            <textarea id="mybox" value={text} onChange={(e)=>(setText(e.target.value))} rows={8} placeholder='PLease enter the text...'></textarea>           
-            <Button onClick={handleUpClick}>Convert to Uppercase</Button>
-            <Button onClick={handleLowClick}>Convert to Lowercase</Button>
-            <Button onClick={handleClearClick}>Clear Text</Button>
-            <Button onClick={handleReserveClick}>Reserve Text</Button>
-            <Button onClick={handleCopyClick}>Copy Text</Button>
-        </div>
+                <textarea 
+                id="mybox" 
+                value={text} 
+                onChange={(e)=>(setText(e.target.value))} rows={8}
+                placeholder='Please enter the text...'
+                />           
+                <Button onClick={handleUpClick}>Convert to Uppercase</Button>
+                <Button onClick={handleLowClick}>Convert to Lowercase</Button>
+                <Button onClick={handleClearClick}>Clear Text</Button>
+                <Button onClick={handleReserveClick}>Reserve Text</Button>
+                <Button onClick={handleCopyClick}>Copy Text</Button>
+            </div>
         </div>
     </div>
+
     <div className="cont">
         <h2>Your text summary</h2>
         <p>{text.split(" ").length} words and {text.length} character</p>
@@ -52,18 +58,91 @@ return (
 export default Textform
 
 
+// const FormContainer = styled.div`
+//     max-width: 400px;
+//     margin: 30px auto;
+//     padding: 20px;
+//     border-radius: 8px;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    
+//     .cont {
+//         background: ${({ mode }) => (mode === 'dark' ? '#1b1b1b' : '#f0f0f0')};
+//         color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
+//         padding: 1rem;
+//         border-radius: 10px;
+//         margin-bottom: 2rem;
+
+//     h1, h2 {
+//         color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
+//         }
+
+//     p {
+//         color: ${({ mode }) => (mode === 'dark' ? '#ccc' : '#333')};
+//     }
+//     }
+    
+//     .form {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+        
+//         .txt {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 15px;
+//             width: 100%;
+
+//             textarea {
+//                 width: 100%;
+//                 font-size: 1rem;
+//                 padding: 10px;
+//                 border-radius: 6px;
+//                 border: 1px solid #ccc;
+//                 background-color: ${({ mode }) => (mode === 'dark' ? '#333' : '#fff')};
+//                 color: ${({ mode }) => (mode === 'dark' ? '#fff' : '#000')};
+
+//                 &::placeholder {
+//                     color: ${({ mode }) => (mode === 'dark' ? '#ccc' : '#693b3b')};
+//                 }
+//             }
+//             /* button {
+//                 padding: 12px 24px;
+//                 border-radius: 6px;
+//                 background-color: #0044ff;
+//                 color: white;
+//                 border: none;
+//                 font-size: 1rem;
+//                 cursor: pointer;
+                
+//                 &:hover {
+//                     background-color: #0033cc;
+//                 }
+//             } */
+//         }
+//     }
+// `
 const FormContainer = styled.div`
     max-width: 400px;
     margin: 30px auto;
     padding: 20px;
-    background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: ${({ mode }) => (mode === 'dark' ? '#4a3f3f' : '#ffffff')};
     
-    h1 {
-        text-align: center;
-        color: #333;
+    .cont {
+        background-color: ${({ mode }) => (mode === 'dark' ? 'transparent' : '#f0f0f0')};
+        color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
+        border-radius: ${({ mode }) => (mode === 'dark' ? '0' : '10px')};
         margin-bottom: 2rem;
+
+    h1, h2 {
+        color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
+        }
+
+    p {
+        color: ${({ mode }) => (mode === 'dark' ? '#ccc' : '#333')};
+    }
     }
     
     .form {
@@ -76,20 +155,20 @@ const FormContainer = styled.div`
             flex-direction: column;
             gap: 15px;
             width: 100%;
-                        
-            /* button {
-                padding: 12px 24px;
-                border-radius: 6px;
-                background-color: #0044ff;
-                color: white;
-                border: none;
+
+            textarea {
+                width: 100%;
                 font-size: 1rem;
-                cursor: pointer;
-                
-                &:hover {
-                    background-color: #0033cc;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                background-color: ${({ mode }) => (mode === 'dark' ? '#f8f8f8' : '#fff')};
+                color: ${({ mode }) => (mode === 'dark' ? '#333' : '#000')};
+
+                &::placeholder {
+                    color: ${({ mode }) => (mode === 'dark' ? '#666' : '#693b3b')};
                 }
-            } */
+            }
         }
     }
 `

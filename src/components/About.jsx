@@ -6,13 +6,12 @@ import { Button } from '../styled/Button'
 function About() {
     
     const [showTopic, setShowTopic] = useState(false)
-    const [myStyle,setMyStyle] = useState({backgroundColor:'#f0f0f0',color:"black"
-    })
+    const [myStyle,setMyStyle] = useState({backgroundColor:'#f0f0f0',color:"black"})
     const [btnText,setBtnText]=useState("Enable Dark mode")
 
     //Dark mode setup
     const toggleDark=()=>{
-        if(myStyle.color =="black"){
+        if(myStyle.color === "black"){
             setMyStyle({backgroundColor:'black',color:"white",border:"1px solid white"})
             setBtnText("Enable Light mode")
             }else{  

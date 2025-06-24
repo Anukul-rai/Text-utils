@@ -19,7 +19,10 @@ function Textform({heading}) {
     const handleReserveClick=()=>{
         setText(text.split("").reverse().join(""))
     }
-
+    const handleCopyClick =()=>{
+        navigator.clipboard.writeText(text) 
+        
+    }
 return (
 <FormContainer>
     <div className="cont">
@@ -31,6 +34,7 @@ return (
             <Button onClick={handleLowClick}>Convert to Lowercase</Button>
             <Button onClick={handleClearClick}>Clear Text</Button>
             <Button onClick={handleReserveClick}>Reserve Text</Button>
+            <Button onClick={handleCopyClick}>Copy Text</Button>
         </div>
         </div>
     </div>

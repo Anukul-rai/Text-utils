@@ -131,7 +131,7 @@ const FormContainer = styled.div`
     background-color: ${({ mode }) => (mode === 'dark' ? '#4a3f3f' : '#ffffff')};
     
     .cont {
-        background-color: ${({ mode }) => (mode === 'dark' ? 'transparent' : '#f0f0f0')};
+        background-color: ${({ mode }) => (mode === 'dark' ? 'transparent' : '#ffffff')};
         color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
         border-radius: ${({ mode }) => (mode === 'dark' ? '0' : '10px')};
         margin-bottom: 2rem;

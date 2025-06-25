@@ -2,25 +2,32 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {Button} from '../styled/Button'
 
-function Textform({heading,mode}) {
+function Textform({heading,mode,showAlert}) {
     const[text,setText]=useState("Enter a texts")
 
     const handleUpClick= ()=>{
         setText(text.toUpperCase());
+        showAlert("Converted to uppercase","Sucess")
+
     }
 
     const handleLowClick=()=>{
         setText(text.toLowerCase());
+        showAlert("Converted to Lowercase","Sucess")
+
     }
 
     const handleClearClick=()=>{
         setText("");
+        showAlert("Text cleared","Sucess")
     }
     const handleReserveClick=()=>{
         setText(text.split("").reverse().join(""))
+        showAlert("Texted reserved","Sucess")
     }
     const handleCopyClick =()=>{
         navigator.clipboard.writeText(text) 
+        showAlert("TExted copied","Sucess")
         
     }
 return (

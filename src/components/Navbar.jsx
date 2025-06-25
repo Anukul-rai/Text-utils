@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import {Link} from "react-router-dom"
 
 function Navbar({text,aboutText,contactText,mode,toggleMode}) {
   return (
@@ -7,9 +7,9 @@ function Navbar({text,aboutText,contactText,mode,toggleMode}) {
     <nav className={`navbar ${mode}`}>
     <div className="nav-bar">
         <h1>Textutils</h1>
-        <a href="/">{text}</a>
-        <a href="about">{aboutText}</a>
-        <a href="Contact-us">{contactText}</a>
+        <Link to="/">{text}</Link>
+        <Link to="about">{aboutText}</Link>
+        <Link to="Contact-us">{contactText}</Link>
       </div>
         {/* <input type="text" id="search" placeholder="Search..."/>
         <button>Search</button> */}

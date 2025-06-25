@@ -3,7 +3,7 @@ import { useState,useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Textform from "./components/Textform"
 import Alert from "./components/ALert"
-import { BrowserRouter as Router, Routes, Route, Link, BrowserRouter } from "react-router";
+import { BrowserRouter as Router, Routes, Route,BrowserRouter  } from "react-router";
 
 function App() {
   const [mode , setMode]=useState('light')//wheather dark mode is enabled or not
@@ -50,9 +50,9 @@ function App() {
       />
       <Alert alert={alert}/>
       <Routes>
-          <Route exact path="/about" element={<About />}/>
+          <Route exact path="/about" element={<About mode={mode}/>}/>
           <Route exact path="/"element={<Textform
-              heading="Enter the text to analyze"
+              heading=" Try Textutils"
               showAlert={showAlert}
               mode={mode}/>}/>
       </Routes>

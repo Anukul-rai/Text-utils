@@ -3,37 +3,47 @@ import styled from 'styled-components'
 import {Button} from '../styled/Button'
 
 function Textform({heading,mode,showAlert}) {
-    const[text,setText]=useState("Enter a texts")
+
+    
+
+    const[text,setText]=useState(" ")
 
     const handleUpClick= ()=>{
+        if (text.trim().length === 0) return;
         setText(text.toUpperCase());
         showAlert("Converted to uppercase","Sucess")
 
     }
 
     const handleLowClick=()=>{
+        if (text.trim().length === 0) return;
         setText(text.toLowerCase());
         showAlert("Converted to Lowercase","Sucess")
 
     }
 
     const handleClearClick=()=>{
+        if (text.trim().length === 0) return;
         setText("");
         showAlert("Text cleared","Sucess")
     }
     const handleReserveClick=()=>{
+        if (text.trim().length === 0) return;
         setText(text.split("").reverse().join(""))
         showAlert("Texted reserved","Sucess")
     }
     const handleCopyClick =()=>{
+        if (text.trim().length === 0) return;
         navigator.clipboard.writeText(text) 
         showAlert("TExted copied","Sucess")
         
     }
+    const isDisabled = text.trim().length === 0;
 return (
 <FormContainer mode={mode}> 
-    <div className="cont ">
-        <h1>{heading}</h1>
+    <div>
+        <div className="cont ">
+        <h1 style={{textAlign:'center'}}>{heading}</h1>
         <div className='form'>
             <div className="txt">
                 <textarea 
@@ -42,21 +52,22 @@ return (
                 onChange={(e)=>(setText(e.target.value))} rows={8}
                 placeholder='Please enter the text...'
                 />           
-                <Button onClick={handleUpClick}>Convert to Uppercase</Button>
-                <Button onClick={handleLowClick}>Convert to Lowercase</Button>
-                <Button onClick={handleClearClick}>Clear Text</Button>
-                <Button onClick={handleReserveClick}>Reserve Text</Button>
-                <Button onClick={handleCopyClick}>Copy Text</Button>
+                <Button disabled={isDisabled} onClick={handleUpClick}>Convert to Uppercase</Button>
+                <Button disabled={isDisabled} onClick={handleLowClick}>Convert to Lowercase</Button>
+                <Button disabled={isDisabled} onClick={handleClearClick}>Clear Text</Button>
+                <Button disabled={isDisabled} onClick={handleReserveClick}>Reserve Text</Button>
+                <Button disabled={isDisabled} onClick={handleCopyClick}>Copy Text</Button>
             </div>
         </div>
     </div>
 
     <div className="cont">
         <h2>Your text summary</h2>
-        <p>{text.split(" ").filter(word => word.trim() !== "").length}: words, {text.length} Characters</p>
-        <p>{0.008*text.split(" ").length} Mintues to read</p>
+        <p>{text.split(" ").filter((e)=>{return e.length !==0}).length}: words, {text.length} Characters</p>
+        <p>{0.008 * text.split(" ").filter((e)=>{return e.length !==0}).length} Mintues to read</p>
         <h2>Preview:</h2>
         <p>{text}</p>
+    </div>
     </div>
 </FormContainer>
 )
@@ -65,8 +76,8 @@ return (
 export default Textform
 
 const FormContainer = styled.div`
-    max-width: 400px;
-    margin: 30px auto;
+    max-width: 500px;
+    margin: auto;;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -83,6 +94,7 @@ const FormContainer = styled.div`
         }
 
     p {
+        max-width: 100%;
         color: ${({ mode }) => (mode === 'dark' ? '#ccc' : '#333')};
     }
     }
@@ -99,7 +111,6 @@ const FormContainer = styled.div`
             width: 100%;
 
             textarea {
-                width: 100%;
                 font-size: 1rem;
                 padding: 10px;
                 border-radius: 6px;

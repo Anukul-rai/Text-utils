@@ -5,7 +5,8 @@ import { Button } from '../styled/Button'
 
 function About({mode}) {
     
-    const [showTopic, setShowTopic] = useState(false)
+    const [showTopic1, setShowTopic1] = useState(false)
+    const [showTopic2, setShowTopic2] = useState(false)
     // const [myStyle,setMyStyle] = useState({backgroundColor:'#f0f0f0',color:"black"})
     // const [btnText,setBtnText]=useState("Enable Dark mode")
 
@@ -24,16 +25,27 @@ function About({mode}) {
       <div className='head'>
         <h1>About us</h1>
         <div className="drop" > {/* style={myStyle} */}
-            <h3>Topic 1</h3>
-            <Button onClick={() => setShowTopic(!showTopic)}>
-            {showTopic ? 'Close' : 'Open'}
+            <h3><strong>Analyze Your text</strong></h3>
+            <Button onClick={() => setShowTopic1(!showTopic1)}>
+            {showTopic1 ? 'Close' : 'Open'}
             </Button>
-            {showTopic && (
+            {showTopic1 && (
                 <p >
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Iste, explicabo quas harum beatae fuga quod quo corrupti 
-                nihil inventore assumenda numquam vero maxime soluta nat, 
-                dicta consequuntur consectetur ea corporis.
+                  Textutils gives you a way to analyze your text quickly and efficiently. Be it word count, character count or 
+                  reading time estimations, our tool has got you covered. The tool is free to use and
+                </p>
+            )}
+        </div>
+        <div className="drop" > {/* style={myStyle} */}
+            <h3><strong>Free to use</strong></h3>
+            <Button onClick={() => setShowTopic2(!showTopic2)}>
+            {showTopic2 ? 'Close' : 'Open'}
+            </Button>
+            {showTopic2 && (
+                <p >
+                TextUtils is a free character counter tool that provides instant character count & word count
+                statistics for a given text. TextUtils reports the number of words and characters. Thus it
+                is suitable for writing text with word/ character limit.
                 </p>
             )}
         </div>
@@ -51,17 +63,15 @@ export default About
 const AboutContainer =styled.div`
     background-color: #f0f0f0;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px dashed #2c2525;
     border-radius: 10px;
-    margin: 5px;
-    background-color: ${({ mode }) => (mode === 'dark' ? '#4a3f3f' : '#ffffff')};
+    margin: 15px;
+    background-color: ${({ mode }) => (mode === 'dark' ? '#472626' : '#ffffff')};
+    color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
 
     .head{
         display: flex;
         flex-direction: column;
-        background-color: ${({ mode }) => (mode === 'dark' ? 'transparent' : '#ffffff')};
-        color: ${({ mode }) => (mode === 'dark' ? 'white' : 'black')};
-
         .drop{
             display: flex;
             flex-direction: column;
@@ -69,11 +79,15 @@ const AboutContainer =styled.div`
             border: 1px dashed black;
             padding: 10px;
             border-radius: 10px;
-            background-color: ${({ mode }) => (mode === 'dark' ? '#2e2e2e' : '#f9f9f9')};
-            color: ${({ mode }) => (mode === 'dark' ? '#f5f5f5' : '#000')}
-;            h3{
+            border-color: ${({mode})=>(mode ==="dark" ? "white":"black" )};
+
+          h3{
                 margin-bottom: 10px;
                 }
+          p{
+            margin-bottom: 10px;
+            font-size: 20px;
+          }
         }
         
     }

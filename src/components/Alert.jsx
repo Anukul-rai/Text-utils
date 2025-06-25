@@ -13,10 +13,12 @@ function Alert({alert}) {
     if (!visible) return null;
 
   return (
-    alert && <AlertWrapper role='alert' >
+    <div style={{height:'50px'}}>
+    {alert && <AlertWrapper role='alert' >
             <StrongText>{alert.type}</StrongText>: {alert.msg}
             {/* <CloseButton onClick={dismissAlert}>&times;</CloseButton> */}
-        </AlertWrapper>
+        </AlertWrapper>}
+        </div>
     );
 }
 

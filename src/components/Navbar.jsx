@@ -32,12 +32,11 @@ export default Navbar
 
 const NavContainer = styled.div`
   margin: 0;
-  padding: 0;
 
   nav {
     display: flex;
     align-items: center;
-    padding: 12px 20px;
+    /* padding: 12px 20px; */
 
     &.light {
         background-color: #559d70;

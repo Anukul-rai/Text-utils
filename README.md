@@ -1,12 +1,37 @@
-# React + Vite
+<h1>Text-utils 📝<h1></h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 A powerful and intuitive React text utility tool that allows you to manipulate text quickly and error‑free, with real-time previews and optional dark mode
 
-Currently, two official plugins are available:
+<h3>✨ Features</h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<ul>
+  <li>Convert text to uppercase or lowercase</li>
+  
+  <li>Remove extra spaces</li>
 
-## Expanding the ESLint configuration
+  <li>Copy text to clipboard</li>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  <li>Word & character count</li>
+
+  <li>Estimated read time</li>
+
+  <li>Light/Dark mode toggle</li>
+
+</ul>  
+
+
+
+
+<h3>🛠️ Built With</h3>
+<ol>
+  <li>React</li>
+  
+  <li>JavaScript</li>
+
+  <li>HTML/CSS</li>
+
+</ol>
+
+
+
+

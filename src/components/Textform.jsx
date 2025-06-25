@@ -53,7 +53,7 @@ return (
 
     <div className="cont">
         <h2>Your text summary</h2>
-        <p>{text.split(" ").length} words and {text.length} character</p>
+        <p>{text.split(" ").filter(word => word.trim() !== "").length}: words, {text.length} Characters</p>
         <p>{0.008*text.split(" ").length} Mintues to read</p>
         <h2>Preview:</h2>
         <p>{text}</p>
